@@ -7,24 +7,31 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 
 const DeliveryLabelScanner = ({navigation}) => {
   const onSuccess = e => {
+    Alert.alert('', 'Data successfully sent to CRM!');
     navigation.popToTop();
-    Alert.alert('Data successfully sent to CRM!');
   };
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      Alert.alert('', 'Data successfully sent to CRM!');
+      navigation.popToTop();
+    }, 5000);
+  }, [navigation]);
 
   return (
     <View style={{flex: 1}}>
       <QRCodeScanner
         onRead={onSuccess}
-        flashMode={RNCamera.Constants.FlashMode.torch}
+        flashMode={RNCamera.Constants.FlashMode.off}
         cameraStyle={{overflow: 'hidden'}}
         topContent={
           <Text style={styles.centerText}>Scan the delivery label!</Text>
         }
-        bottomContent={
-          <TouchableOpacity style={styles.buttonTouchable} onPress={onSuccess}>
-            <Text style={styles.buttonText}>OK. Got it!</Text>
-          </TouchableOpacity>
-        }
+        // bottomContent={
+        //   <TouchableOpacity style={styles.buttonTouchable} onPress={onSuccess}>
+        //     <Text style={styles.buttonText}>OK. Got it!</Text>
+        //   </TouchableOpacity>
+        // }
       />
     </View>
   );

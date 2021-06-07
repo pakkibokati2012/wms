@@ -1,31 +1,42 @@
 'use strict';
 
 import React, {useState} from 'react';
-import {
-  ActivityIndicator,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {ActivityIndicator, Alert, StyleSheet, Text, View} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import QRCodeScanner from 'react-native-qrcode-scanner';
+import {colors} from '../constants/colors';
 
 const ShelfScanner = ({navigation}) => {
   const [postingInfo, setPostingInfo] = useState(false);
+
   const onSuccess = e => {
     setPostingInfo(true);
     setTimeout(() => {
+      Alert.alert('', 'Data submitted successfully');
       setPostingInfo(false);
       navigation.popToTop();
-    }, 2000);
+    }, 4000);
   };
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setPostingInfo(true);
+      Alert.alert('', 'Data submitted successfully');
+      setPostingInfo(false);
+      navigation.popToTop();
+    }, 4000);
+  }, [navigation]);
 
   if (postingInfo) {
     return (
-      <View>
-        <ActivityIndicator color={'red'} />
-        <Text>Posting data to backend!</Text>
+      <View
+        style={{
+          paddingTop: 20,
+          justifyContent: 'center',
+          flexDirection: 'row',
+        }}>
+        <ActivityIndicator size="small" color={colors.primary} />
+        <Text style={{marginLeft: 5}}>Please wait!</Text>
       </View>
     );
   }
@@ -33,16 +44,16 @@ const ShelfScanner = ({navigation}) => {
   return (
     <QRCodeScanner
       onRead={onSuccess}
-      flashMode={RNCamera.Constants.FlashMode.torch}
+      flashMode={RNCamera.Constants.FlashMode.off}
       cameraStyle={{overflow: 'hidden'}}
       topContent={
         <Text style={styles.centerText}>Scan code on the shelf!</Text>
       }
-      bottomContent={
-        <TouchableOpacity style={styles.buttonTouchable} onPress={onSuccess}>
-          <Text style={styles.buttonText}>OK. Got it!</Text>
-        </TouchableOpacity>
-      }
+      // bottomContent={
+      //   <TouchableOpacity style={styles.buttonTouchable} onPress={onSuccess}>
+      //     <Text style={styles.buttonText}>OK. Got it!</Text>
+      //   </TouchableOpacity>
+      // }
     />
   );
 };
