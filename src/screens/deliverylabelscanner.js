@@ -4,11 +4,9 @@ import React from 'react';
 import {Alert, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import QRCodeScanner from 'react-native-qrcode-scanner';
-import {reset} from '../helper/navigation';
 
 const DeliveryLabelScanner = ({navigation}) => {
   const onSuccess = e => {
-    reset();
     navigation.popToTop();
     Alert.alert('Data successfully sent to CRM!');
   };
@@ -18,7 +16,7 @@ const DeliveryLabelScanner = ({navigation}) => {
       <QRCodeScanner
         onRead={onSuccess}
         flashMode={RNCamera.Constants.FlashMode.torch}
-        cameraStyle={{flex: 0.5}}
+        cameraStyle={{overflow: 'hidden'}}
         topContent={
           <Text style={styles.centerText}>Scan the delivery label!</Text>
         }

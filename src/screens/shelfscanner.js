@@ -34,7 +34,7 @@ const ShelfScanner = ({navigation}) => {
     <QRCodeScanner
       onRead={onSuccess}
       flashMode={RNCamera.Constants.FlashMode.torch}
-      cameraStyle={{flex: 0.5}}
+      cameraStyle={{overflow: 'hidden'}}
       topContent={
         <Text style={styles.centerText}>Scan code on the shelf!</Text>
       }

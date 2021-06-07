@@ -20,21 +20,18 @@ const PackageScanner = ({navigation}) => {
   };
 
   return (
-    <View style={{flex: 1}}>
-      <QRCodeScanner
-        onRead={onSuccess}
-        flashMode={RNCamera.Constants.FlashMode.torch}
-        cameraStyle={{flex: 0.5}}
-        topContent={
-          <Text style={styles.centerText}>Scan code on the box!</Text>
-        }
-        bottomContent={
-          <TouchableOpacity style={styles.buttonTouchable} onPress={onSuccess}>
-            <Text style={styles.buttonText}>OK. Got it!</Text>
-          </TouchableOpacity>
-        }
-      />
-    </View>
+    <QRCodeScanner
+      onRead={onSuccess}
+      flashMode={RNCamera.Constants.FlashMode.torch}
+      cameraStyle={{overflow: 'hidden'}}
+      showMarker={true}
+      topContent={<Text style={styles.centerText}>Scan code on the box!</Text>}
+      bottomContent={
+        <TouchableOpacity style={styles.buttonTouchable} onPress={onSuccess}>
+          <Text style={styles.buttonText}>OK. Got it!</Text>
+        </TouchableOpacity>
+      }
+    />
   );
 };
 
@@ -46,10 +43,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     padding: 32,
     color: '#777',
-  },
-  textBold: {
-    fontWeight: '500',
-    color: '#000',
   },
   buttonText: {
     fontSize: 21,
