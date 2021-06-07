@@ -17,9 +17,8 @@ const ShelfScanner = ({navigation}) => {
     setPostingInfo(true);
     setTimeout(() => {
       setPostingInfo(false);
-      navigation.navigate('PackageScanner');
+      navigation.popToTop();
     }, 2000);
-    navigation.navigate('ShelfScanner');
   };
 
   if (postingInfo) {

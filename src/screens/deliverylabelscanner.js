@@ -9,6 +9,7 @@ import {reset} from '../helper/navigation';
 const DeliveryLabelScanner = ({navigation}) => {
   const onSuccess = e => {
     reset();
+    navigation.popToTop();
     Alert.alert('Data successfully sent to CRM!');
   };
 
