@@ -8,7 +8,7 @@ export default function OrderDetail({navigation}) {
   useEffect(() => {
     setTimeout(() => {
       setLoadingDetail(false);
-    }, 5000);
+    }, 2000);
   }, []);
 
   if (loadingDetail) {

@@ -8,7 +8,7 @@ export default function PackageDetail({navigation}) {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 2000);
   }, []);
 
   if (loading) {

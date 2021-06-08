@@ -3,7 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import React, {useLayoutEffect} from 'react';
 import {colors} from '../constants/colors';
 import Home from '../screens/home';
-import PackageScanner from '../screens/packageScanner';
+import PackageScanner from '../screens/packagescanner';
 import PackageDetail from '../screens/packageDetail';
 import ShelfScanner from '../screens/shelfscanner';
 import ShelfDetail from '../screens/shelfDetail';

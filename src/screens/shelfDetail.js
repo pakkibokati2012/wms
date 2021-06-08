@@ -8,7 +8,7 @@ export default function PackageDetail({navigation}) {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 2000);
   }, []);
 
   if (loading) {
@@ -25,7 +25,18 @@ export default function PackageDetail({navigation}) {
       }}>
       <View style={{flexDirection: 'row', marginBottom: 30}}>
         <Text style={{fontSize: 20, fontWeight: '700'}}>Location:</Text>
-        <Text style={{fontSize: 20}}>xyz123</Text>
+        <Text style={{fontSize: 20}}>XYZ123</Text>
+      </View>
+      <View
+        style={{
+          backgroundColor: '#dedede',
+          padding: 8,
+          borderRadius: 2,
+          marginBottom: 15,
+        }}>
+        <Text style={{fontSize: 12}}>
+          Please place the box in above location and press submit.
+        </Text>
       </View>
       <Button
         title="Submit"
