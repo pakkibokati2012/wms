@@ -13,7 +13,7 @@ const DeliveryLabelScanner = ({navigation}) => {
   React.useEffect(() => {
     setTimeout(() => {
       navigation.navigate('DeliveryDetail');
-    }, 4000);
+    }, 5000);
   }, [navigation]);
 
   return (

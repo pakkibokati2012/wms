@@ -14,7 +14,7 @@ const PackageScanner = ({navigation}) => {
   React.useEffect(() => {
     setTimeout(() => {
       navigation.navigate('PackageDetail');
-    }, 2000);
+    }, 5000);
   }, [navigation]);
 
   return (

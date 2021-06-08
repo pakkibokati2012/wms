@@ -14,7 +14,7 @@ const ShelfScanner = ({navigation}) => {
   React.useEffect(() => {
     setTimeout(() => {
       navigation.navigate('ShelfDetail');
-    }, 4000);
+    }, 5000);
   }, [navigation]);
 
   return (
