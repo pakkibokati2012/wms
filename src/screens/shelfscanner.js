@@ -7,39 +7,15 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 import {colors} from '../constants/colors';
 
 const ShelfScanner = ({navigation}) => {
-  const [postingInfo, setPostingInfo] = useState(false);
-
   const onSuccess = e => {
-    setPostingInfo(true);
-    setTimeout(() => {
-      Alert.alert('', 'Data submitted successfully');
-      setPostingInfo(false);
-      navigation.popToTop();
-    }, 4000);
+    navigation.navigate('ShelfDetail');
   };
 
   React.useEffect(() => {
     setTimeout(() => {
-      setPostingInfo(true);
-      Alert.alert('', 'Data submitted successfully');
-      setPostingInfo(false);
-      navigation.popToTop();
+      navigation.navigate('ShelfDetail');
     }, 4000);
   }, [navigation]);
-
-  if (postingInfo) {
-    return (
-      <View
-        style={{
-          paddingTop: 20,
-          justifyContent: 'center',
-          flexDirection: 'row',
-        }}>
-        <ActivityIndicator size="small" color={colors.primary} />
-        <Text style={{marginLeft: 5}}>Please wait!</Text>
-      </View>
-    );
-  }
 
   return (
     <QRCodeScanner
@@ -47,7 +23,7 @@ const ShelfScanner = ({navigation}) => {
       flashMode={RNCamera.Constants.FlashMode.off}
       cameraStyle={{overflow: 'hidden'}}
       topContent={
-        <Text style={styles.centerText}>Scan code on the shelf!</Text>
+        <Text style={styles.centerText}>Scan code on the location!</Text>
       }
       // bottomContent={
       //   <TouchableOpacity style={styles.buttonTouchable} onPress={onSuccess}>

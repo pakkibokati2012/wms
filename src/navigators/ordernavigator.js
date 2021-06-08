@@ -5,6 +5,7 @@ import {colors} from '../constants/colors';
 import DeliveryLabelScanner from '../screens/deliverylabelscanner';
 import OrderDetail from '../screens/orderdetail';
 import Orders from '../screens/orders';
+import DeliveryDetail from '../screens/deliveryDetail';
 
 const Stack = createStackNavigator();
 
@@ -35,6 +36,11 @@ export default function OrderNavigator({navigation, route}) {
         name="DeliveryLabelScanner"
         options={{title: 'Delivery Label Scanner'}}
         component={DeliveryLabelScanner}
+      />
+      <Stack.Screen
+        name="DeliveryDetail"
+        options={{title: 'Delivery Detail'}}
+        component={DeliveryDetail}
       />
     </Stack.Navigator>
   );

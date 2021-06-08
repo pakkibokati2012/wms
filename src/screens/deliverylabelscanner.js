@@ -7,15 +7,13 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 
 const DeliveryLabelScanner = ({navigation}) => {
   const onSuccess = e => {
-    Alert.alert('', 'Data successfully sent to CRM!');
-    navigation.popToTop();
+    navigation.navigate('DeliveryDetail');
   };
 
   React.useEffect(() => {
     setTimeout(() => {
-      Alert.alert('', 'Data successfully sent to CRM!');
-      navigation.popToTop();
-    }, 5000);
+      navigation.navigate('DeliveryDetail');
+    }, 4000);
   }, [navigation]);
 
   return (

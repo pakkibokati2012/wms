@@ -8,13 +8,13 @@ import {RNCamera} from 'react-native-camera';
 
 const PackageScanner = ({navigation}) => {
   const onSuccess = e => {
-    navigation.navigate('ShelfScanner');
+    navigation.navigate('PackageDetail');
   };
 
   React.useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('ShelfScanner');
-    }, 5000);
+      navigation.navigate('PackageDetail');
+    }, 2000);
   }, [navigation]);
 
   return (

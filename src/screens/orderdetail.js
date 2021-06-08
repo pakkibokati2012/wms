@@ -19,22 +19,35 @@ export default function OrderDetail({navigation}) {
       style={{
         paddingHorizontal: 12,
         flex: 1,
-        paddingTop: 20,
         paddingBottom: 30,
       }}>
-      <Text style={{fontSize: 20}}>Here is the order details.</Text>
-      <View style={{paddingVertical: 10, flex: 1}}>
-        <Text>
-          Dolore est quis ea laborum sit. Adipisicing dolore do est voluptate ex
-          officia occaecat qui. Qui cupidatat magna dolor id in quis. Cillum sit
-          et id commodo labore laborum nisi. Aliqua sunt commodo ad nostrud
-          excepteur duis officia qui fugiat ad cupidatat sint veniam sunt. Ea
-          esse officia minim dolore dolore aute ea eu nulla quis tempor ipsum
-          elit.
+      <View style={{paddingVertical: 10, marginBottom: 30}}>
+        <View style={{}}>
+          <Text style={{fontSize: 26}}>Order of 50 darts.</Text>
+        </View>
+        <View style={{flexDirection: 'row', marginTop: 20}}>
+          <Text style={{fontWeight: '700'}}>Total available darts: </Text>
+          <Text>400</Text>
+        </View>
+        <View style={{flexDirection: 'row', marginTop: 4}}>
+          <Text style={{fontWeight: '700'}}>Dart available location: </Text>
+          <Text>XYZ123</Text>
+        </View>
+      </View>
+      <View
+        style={{
+          backgroundColor: '#dedede',
+          padding: 8,
+          borderRadius: 2,
+          marginBottom: 15,
+        }}>
+        <Text style={{fontSize: 12}}>
+          Please pick 50 darts from XYZ123. Pack it into the box, put a delivery
+          note and scan the delivery note by pressing the button below
         </Text>
       </View>
       <Button
-        title="Proceed to scanning the delivery label"
+        title="proceed"
         onPress={() => {
           navigation.navigate('DeliveryLabelScanner');
         }}

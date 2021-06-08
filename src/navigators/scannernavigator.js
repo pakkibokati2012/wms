@@ -4,7 +4,9 @@ import React, {useLayoutEffect} from 'react';
 import {colors} from '../constants/colors';
 import Home from '../screens/home';
 import PackageScanner from '../screens/packageScanner';
+import PackageDetail from '../screens/packageDetail';
 import ShelfScanner from '../screens/shelfscanner';
+import ShelfDetail from '../screens/shelfDetail';
 
 const Stack = createStackNavigator();
 
@@ -33,9 +35,19 @@ export default function ScannerNavigator({navigation, route}) {
         options={{title: 'Package Scanner'}}
       />
       <Stack.Screen
+        name="PackageDetail"
+        component={PackageDetail}
+        options={{title: 'Package Detail'}}
+      />
+      <Stack.Screen
         name="ShelfScanner"
         component={ShelfScanner}
-        options={{title: 'Shelf Scanner'}}
+        options={{title: 'Location Scanner'}}
+      />
+      <Stack.Screen
+        name="ShelfDetail"
+        component={ShelfDetail}
+        options={{title: 'Location Detail'}}
       />
     </Stack.Navigator>
   );
