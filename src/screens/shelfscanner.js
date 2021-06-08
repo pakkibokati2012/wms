@@ -1,48 +1,35 @@
 'use strict';
 
 import React, {useState} from 'react';
-import {
-  ActivityIndicator,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {ActivityIndicator, Alert, StyleSheet, Text, View} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import QRCodeScanner from 'react-native-qrcode-scanner';
+import {colors} from '../constants/colors';
 
 const ShelfScanner = ({navigation}) => {
-  const [postingInfo, setPostingInfo] = useState(false);
   const onSuccess = e => {
-    setPostingInfo(true);
-    setTimeout(() => {
-      setPostingInfo(false);
-      navigation.popToTop();
-    }, 2000);
+    navigation.navigate('ShelfDetail');
   };
 
-  if (postingInfo) {
-    return (
-      <View>
-        <ActivityIndicator color={'red'} />
-        <Text>Posting data to backend!</Text>
-      </View>
-    );
-  }
+  React.useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate('ShelfDetail');
+    }, 5000);
+  }, [navigation]);
 
   return (
     <QRCodeScanner
       onRead={onSuccess}
-      flashMode={RNCamera.Constants.FlashMode.torch}
+      flashMode={RNCamera.Constants.FlashMode.off}
       cameraStyle={{overflow: 'hidden'}}
       topContent={
-        <Text style={styles.centerText}>Scan code on the shelf!</Text>
+        <Text style={styles.centerText}>Scan code on the location!</Text>
       }
-      bottomContent={
-        <TouchableOpacity style={styles.buttonTouchable} onPress={onSuccess}>
-          <Text style={styles.buttonText}>OK. Got it!</Text>
-        </TouchableOpacity>
-      }
+      // bottomContent={
+      //   <TouchableOpacity style={styles.buttonTouchable} onPress={onSuccess}>
+      //     <Text style={styles.buttonText}>OK. Got it!</Text>
+      //   </TouchableOpacity>
+      // }
     />
   );
 };

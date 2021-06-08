@@ -7,7 +7,10 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "r": "adb shell input text 'RR'",
+    "o": "adb shell input keyevent 82",
+    "R": "adb reverse tcp:8081 tcp:8081"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
@@ -24,7 +27,8 @@
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.3.0",
-    "react-native-tab-view": "^2.16.0"
+    "react-native-tab-view": "^2.16.0",
+    "react-native-vector-icons": "^8.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

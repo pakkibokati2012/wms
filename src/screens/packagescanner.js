@@ -1,36 +1,36 @@
 'use strict';
 
-import React, {Component} from 'react';
-
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Linking,
-  View,
-} from 'react-native';
+import React from 'react';
+import {StyleSheet, Text, TouchableOpacity, View, Button} from 'react-native';
 
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {RNCamera} from 'react-native-camera';
 
 const PackageScanner = ({navigation}) => {
   const onSuccess = e => {
-    navigation.navigate('ShelfScanner');
+    navigation.navigate('PackageDetail');
   };
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate('PackageDetail');
+    }, 5000);
+  }, [navigation]);
 
   return (
     <QRCodeScanner
       onRead={onSuccess}
-      flashMode={RNCamera.Constants.FlashMode.torch}
+      flashMode={RNCamera.Constants.FlashMode.off}
       cameraStyle={{overflow: 'hidden'}}
       showMarker={true}
       topContent={<Text style={styles.centerText}>Scan code on the box!</Text>}
-      bottomContent={
-        <TouchableOpacity style={styles.buttonTouchable} onPress={onSuccess}>
-          <Text style={styles.buttonText}>OK. Got it!</Text>
-        </TouchableOpacity>
-      }
+      // bottomContent={
+      //   <TouchableOpacity
+      //     style={styles.buttonTouchable}
+      //     onPress={() => setIsScannerOpen(false)}>
+      //     <Text style={styles.buttonText}>Cancel</Text>
+      //   </TouchableOpacity>
+      // }
     />
   );
 };

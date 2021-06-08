@@ -1,9 +1,11 @@
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import React, {useLayoutEffect} from 'react';
+import {colors} from '../constants/colors';
 import DeliveryLabelScanner from '../screens/deliverylabelscanner';
 import OrderDetail from '../screens/orderdetail';
 import Orders from '../screens/orders';
+import DeliveryDetail from '../screens/deliveryDetail';
 
 const Stack = createStackNavigator();
 
@@ -17,16 +19,28 @@ export default function OrderNavigator({navigation, route}) {
     }
   }, [navigation, route]);
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerTintColor: 'white',
+        headerStyle: {
+          backgroundColor: colors.primary,
+        },
+      }}>
+      <Stack.Screen name="Orders" component={Orders} />
       <Stack.Screen
-        name="Orders"
-        component={Orders}
-        options={{headerShown: false}}
+        name="OrderDetail"
+        component={OrderDetail}
+        options={{title: 'Order Detail'}}
       />
-      <Stack.Screen name="OrderDetail" component={OrderDetail} />
       <Stack.Screen
         name="DeliveryLabelScanner"
+        options={{title: 'Delivery Label Scanner'}}
         component={DeliveryLabelScanner}
+      />
+      <Stack.Screen
+        name="DeliveryDetail"
+        options={{title: 'Delivery Detail'}}
+        component={DeliveryDetail}
       />
     </Stack.Navigator>
   );
